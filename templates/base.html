@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Рецепты{% endblock %}</title>
+</head>
+<body>
+    <h2>{{ title }}</h2>
+    {% block content %}
+    Страница с рецептами
+    {% endblock %}<br><br><br>
+<footer><p>{{ footer }}</p></footer>
+</body>
+</html>
