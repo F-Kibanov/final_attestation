@@ -15,25 +15,37 @@ class AddRecipeForm(forms.Form):
     description = forms.CharField(label='Описание блюда',
                                   widget=forms.Textarea(
                                       attrs={'class': 'form-control',
-                                             'placeholder': 'Введите краткое описание блюда, '
-                                                            'рецепт которого вы предлагаете.'}))
+                                             'placeholder': 'Классический слоёный салат для праздничного стола.'}))
     ingredients = forms.CharField(label='Необходимые ингредиенты',
                                   widget=forms.Textarea(
                                       attrs={'class': 'form-control',
-                                             'placeholder': 'Введите список ингредиентов, '
-                                                            'необходимых для приготовления '
-                                                            'вашего блюда.'}))
+                                             'placeholder': 'Тунец 200гр.,'
+                                                            'Лук 1шт.,'
+                                                            'Сыр 100гр.,'
+                                                            'Майонез 80гр.,'
+                                                            'Яйцо 5шт.,'
+                                                            'Укроп 1шт.'}))
     instructions = forms.CharField(label='Способ приготовления',
-                                   widget=forms.Textarea(attrs={'class': 'form-control',
-                                                                'placeholder': 'Опишите процесс приготовления вашего '
-                                                                               'блюда как можно более подробно'}))
+                                   widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder':
+'''1. Отварить картофель "в мундире", морковь и яйца. Остудить. Почистить.
+2. Все подготовленные составляющие (кроме лука и рыбы) измельчить на средней по размеру ячейке тёрки.
+3. Луковицу мелко порубить, залить на 5 минут кипятком, замариновать.
+4. Первым слоем выложить половину объёма тертого вареного картофеля. Смазать или сделать сетку из качественного, жирного майонеза.
+5. На каждом последующем слое, кроме верхнего, так же сделать сетку или смазывать майонезом.
+6. Второй слой – предварительно размятая рыба.
+7. Следом мелкорубленный промаринованный лук.
+8. Оставшаяся половинка натёртого картофеля.
+9. Затем перетёртая морковь.
+10. Слой тёртого сыра.
+11. Пласт яичного белка.
+12. В финале покрыть протёртым прямо на блюдо желтком.'''
+                                                                }))
     time_to_cook = forms.TimeField(label='Время приготовления (по желанию)', required=False,
                                    widget=TimeInput(attrs={'class': 'form-control'}))
-    image = forms.ImageField(label='Изображение готового блюда', required=False)
+    # image = forms.ImageField(label='Изображение готового блюда', required=False)
     author = forms.CharField(label='Автор рецепта', required=False,
                              widget=forms.Textarea(attrs={'class': 'form-control',
-                                                          'placeholder': 'Укажите автора рецепта, если знаете... '
-                                                                         'Если не знаете - не указывайте!'}))
+                                                          'placeholder': 'Неизвестен'}))
 
     # add_date = forms.DateTimeField(initial=datetime.datetime.now)
 

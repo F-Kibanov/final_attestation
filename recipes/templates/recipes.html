@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row gy-5">
+    {% for recipe in recipes %}
+        <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 recipe-card">
+            <div class="card" style="width: 95%">
+                <div class="card-header">
+                    <h3 align="stretch">{{ recipe.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <p>{{ recipe.description }}</p>
+                    <div class="card-footer">
+                        <h5>Время приготовления: {{ recipe.time_to_cook }}</h5>
+                    </div>
+                    <div class="button" align="center">
+                        <a href="/recipe/{{ recipe.id }}" class="btn btn-primary">Открыть этот рецепт!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}<br><br><br>
+{{ footer }}
+{% block add_button%}
+<div class="button" align="center">
+    <a href="/add_recipe" class="btn btn-primary">Хочу добавить рецепт!</a>
+</div><br>
+{% endblock %}

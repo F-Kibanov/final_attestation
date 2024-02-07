@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row gy-5">
+    {% for user in users %}
+        <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 recipe-card">
+            <div class="card" style="width: 95%">
+                <div class="card-header">
+                    <h3 align="stretch">{{ user.name }} {{ user.surname }}</h3>
+                </div>
+                <div class="card-body">
+                    <p>{{ recipe.description }}</p>
+                    <div class="card-footer">
+                        <h5>Email: {{ user.email }}</h5>
+                    </div>
+                    <div class="card-footer">
+                        <h5>Телефон: {{ user.phone }}</h5>
+                    </div>
+                    <div class="card-footer">
+                        <h5>На сайте с: {{ user.register_date }}</h5>
+                    </div>
+                    <div class="button" align="center">
+                        {% if user.id.type is not 'NoneType' %}
+                            <a href="/recipe/{{ user.id }}" class="btn btn-primary">Открыть рецепты этого пользователя!</a>
+                        {% else %}
+                            <a href="/add_recipe" class="btn btn-primary">Добавить рецепт!</a>
+                        {% endif %}
+                    </div>
+                    <div align="center">
+                        <a href="/del_user/{{ user.id }}" class="btn btn-danger">Удалить этого пользователя (ОПАСНО)!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}<br><br><br>
+{{ footer }}
+{% block add_button%}
+<div class="button" align="center">
+    <a href="/add_user" class="btn btn-primary">Хочу добавить пользователя!</a>
+</div><br>
+{% endblock %}

@@ -3,9 +3,18 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_div }}
-    <input type="submit" value="Отправить">
-</form>
+<div class="container-fluid">
+    <div class="row gy-5">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_div }}<br>
+            <div class="button" align="center">
+                <input type="submit" class="btn btn-primary" value="Добавить!">
+            </div><br>
+        </form>
+    </div>
+</div>
+{% endblock %}<br><br><br>
+    {{ footer }}
+{% block add_button%}
 {% endblock %}
